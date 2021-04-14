@@ -4,7 +4,7 @@ var searchParams = new URLSearchParams(window.location.search);
 var department = searchParams.get("department");
 console.log(department);
 
-fetch('https://jsonplaceholder.typicode.com/comments?postId=' + department)
+fetch(apiURL + department)
     .then(function(response) {
       return response.json();
     })

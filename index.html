@@ -17,29 +17,32 @@
 
   <!-- Add your site or application content here -->
   <p>Puget Sound Bulletin Content Generator</p>
-  <div id="bulletin"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script id="entry-template" type="text/x-handlebars-template">
-    Department
-    {{#each posts}}
-  <div class="entry">
-    <h3>{{name}}</h3>
-    <div class="body">
-      {{body}}
-    </div>
-  </div>
-  {{/each}}
+  <label for="term-select">Choose a term</label>
+
+<select name="term" id="term-select">
+    <option value="2158">Spring 2021</option>
+    <option value="2160">Fall 2021</option>
+</select>
+
+<ul id="departments">
+  <li><a href="display.html?department=1&term=2158">School of Business and Leadership</a></li>
+  <li><a href="display.html?department=2&term=2158">Chemistry</a></li>
+</ul>
+
+<script>
+var selectElement = document.querySelector('#term-select');
+
+selectElement.addEventListener('change', (event) => {
+  var elements = document.querySelectorAll("#departments > li > a");
+  for (var i = 0; i < elements.length; i++) {
+      var href = elements[i].getAttribute("href");
+      var newHref = href.replace(/(term=).*?(&|$)/,'$1' + event.target.value + '$2');
+      elements[i].setAttribute("href", newHref);
+  }
+
+});
+
 </script>
-
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>
