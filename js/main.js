@@ -1,18 +1,16 @@
-
 var searchParams = new URLSearchParams(window.location.search);
 
 var department = searchParams.get("department");
-console.log(department);
+var year = searchParams.get("year");
 
-fetch(apiURL + department)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      var source = document.getElementById("entry-template").innerHTML;
-      var template = Handlebars.compile(source);
-      //var context = { title: "My New Post", body: "This is my first post!" };
-      var context = { posts:json };
-      var html = template(context);
-      document.getElementById('bulletin').innerHTML = html;
-    });
+fetch(bulletinApiUrl + department + "&acad_year=")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    var department_source = document.getElementById("department-template").innerHTML;
+    var department_template = Handlebars.compile(department_source);
+    var department_info = json.results.acad_org;
+    var department_html = department_template(department_info);
+    document.getElementById('department').innerHTML = department_html;
+  });

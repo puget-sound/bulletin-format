@@ -16,29 +16,20 @@
 <body>
 
   <!-- Add your site or application content here -->
-  <div id="bulletin"></div>
+  <div id="department"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
-  <script id="entry-template" type="text/x-handlebars-template">
-    Department
-    {{#each posts}}
-  <div class="entry">
-    <h3>{{name}}</h3>
-    <div class="body">
-      {{body}}
-    </div>
+
+<script id="department-template" type="text/x-handlebars-template">
+<div class="entry">
+  <h3>{{acad_org_descr}}</h3>
+  <div class="body">
+    {{about_text}}
   </div>
-  {{/each}}
+</div>
 </script>
 
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
 </html>

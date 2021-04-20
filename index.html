@@ -17,16 +17,16 @@
 
   <!-- Add your site or application content here -->
   <p>Puget Sound Bulletin Content Generator</p>
-  <label for="term-select">Choose a term</label>
+  <label for="term-select">Choose an academic year</label>
 
 <select name="term" id="term-select">
-    <option value="2158">Spring 2021</option>
-    <option value="2160">Fall 2021</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
 </select>
 
 <ul id="departments">
-  <li><a href="display.html?department=1&term=2158">School of Business and Leadership</a></li>
-  <li><a href="display.html?department=2&term=2158">Chemistry</a></li>
+  <li><a href="display.html?department=BIOLOGY&year=2021">Biology</a></li>
+  <li><a href="display.html?department=CHEMISTRY&year=2158">Chemistry</a></li>
 </ul>
 
 <script>
@@ -36,7 +36,7 @@ selectElement.addEventListener('change', (event) => {
   var elements = document.querySelectorAll("#departments > li > a");
   for (var i = 0; i < elements.length; i++) {
       var href = elements[i].getAttribute("href");
-      var newHref = href.replace(/(term=).*?(&|$)/,'$1' + event.target.value + '$2');
+      var newHref = href.replace(/(year=).*?(&|$)/,'$1' + event.target.value + '$2');
       elements[i].setAttribute("href", newHref);
   }
 
