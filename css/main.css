@@ -261,3 +261,6 @@ textarea {
   }
 }
 
+.body {
+  white-space:pre-line;
+}
