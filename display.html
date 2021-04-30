@@ -23,9 +23,71 @@
 
 <script id="department-template" type="text/x-handlebars-template">
 <div class="entry">
-  <h3>{{acad_org_descr}}</h3>
-  <div class="body">
-    {{about_text}}
+  <h2>{{acad_org.acad_org_descr}}</h2>
+  <div class="members">
+    {{#each dept_members}}
+      <h4 style="margin-bottom:0;">{{member_category}}</h4>
+      {{#each members}}
+        {{member_person_info}}<br>
+      {{/each}}
+      </p>
+    {{/each}}
+  </div>
+  {{#if (or (ne acad_org.acad_org_type_descr "Information"))}}
+  <h3 style="margin-bottom:0;">About the {{acad_org.acad_org_type_descr}}</h3>
+    <div class="about">{{acad_org.about_text}}</div>
+  </div>
+  {{/if}}
+  <div class="courses">
+    <h3>Course Offerings</h3>
+    {{#each course_offerings}}
+      <h4>{{course_list_name}}</h4>
+      {{#if (or (eq course_list_code "SSI") (eq course_list_code "OTHR"))}}
+        {{#if (or (eq course_list_code "SSI"))}}
+        <div class="indent course-list">
+        {{#each courses}}
+          <p><strong>{{course_name}} {{course_title_long}}</strong></p>
+        {{/each}}
+        </div>
+        {{/if}}
+        {{#if (or (eq course_list_code "OTHR"))}}
+        <div class="indent course-list">
+        {{#each courses}}
+          <p><strong>{{course_name}} {{course_title_long}}</strong><br>
+          {{#each core_codes}}
+            Satisfies the {{core_descr}} core requirement.
+          {{/each}}
+          </p>
+        {{/each}}
+        </div>
+        {{/if}}
+      {{else}}
+        <div class="course-list">
+        {{#each courses}}
+          <p><strong style="margin-right:0.5em;font-weight:bold;">{{catalog_nbr}} {{course_title_long}}</strong>
+          {{#if (or (eq course_category "CONN"))}}
+            See Connections in the Core Curriculum section of this Bulletin for course description.
+          {{else}}
+            {{#if (or (ne credit_info "1 unit."))}}
+              {{credit_info}}
+              {{/if}}
+              {{course_description}}
+              <em>
+                {{enroll_reqs}} {{repeat_info}}
+                {{#each core_codes}}
+                Satisfies the {{core_descr}} core requirement.
+                {{/each}}
+                {{#each grade_options}}
+                {{grade_option}}
+                {{/each}}
+                {{frequency}}
+              </em>
+            {{/if}}
+            </p>
+        {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
 </div>
 </script>
