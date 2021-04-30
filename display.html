@@ -39,6 +39,7 @@
   </div>
   {{/if}}
   <div class="courses">
+  {{#if course_offerings}}
     <h3>Course Offerings</h3>
     {{#each course_offerings}}
       <h4>{{course_list_name}}</h4>
@@ -89,6 +90,7 @@
       {{/if}}
     {{/each}}
   </div>
+  {{/if}}
 </div>
 </script>
 
