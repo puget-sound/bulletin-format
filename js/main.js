@@ -10,23 +10,17 @@ fetch(bulletinApiUrl + department + "&acad_year=" + year)
   .then(function(json) {
     var department_source = document.getElementById("department-template").innerHTML;
     var department_template = Handlebars.compile(department_source);
-    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-      return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-    });
+
     Handlebars.registerHelper({
     eq: (v1, v2) => v1 === v2,
     ne: (v1, v2) => v1 !== v2,
-    lt: (v1, v2) => v1 < v2,
-    gt: (v1, v2) => v1 > v2,
-    lte: (v1, v2) => v1 <= v2,
-    gte: (v1, v2) => v1 >= v2,
     and() {
         return Array.prototype.every.call(arguments, Boolean);
     },
     or() {
         return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
     }
-});
+    });
     var department_info = json.results;
     var department_html = department_template(department_info);
     document.getElementById('department').innerHTML = department_html;
