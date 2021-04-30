@@ -33,7 +33,7 @@
       </p>
     {{/each}}
   </div>
-  {{#if (or (ne acad_org.acad_org_type_descr "Informational"))}}
+  {{#if (ne acad_org.acad_org_type_descr "Informational")}}
   <h3 style="margin-bottom:0;">About the {{acad_org.acad_org_type_descr}}</h3>
     <div class="about">{{acad_org.about_text}}</div>
   </div>
@@ -44,14 +44,14 @@
     {{#each course_offerings}}
       <h4>{{course_list_name}}</h4>
       {{#if (or (eq course_list_code "SSI") (eq course_list_code "OTHR"))}}
-        {{#if (or (eq course_list_code "SSI"))}}
+        {{#if (eq course_list_code "SSI")}}
         <div class="indent course-list">
         {{#each courses}}
           <p><strong>{{course_name}} {{course_title_long}}</strong></p>
         {{/each}}
         </div>
         {{/if}}
-        {{#if (or (eq course_list_code "OTHR"))}}
+        {{#if (eq course_list_code "OTHR")}}
         <div class="indent course-list">
         {{#each courses}}
           <p><strong>{{course_name}} {{course_title_long}}</strong><br>
@@ -69,7 +69,7 @@
           {{#if (or (eq course_category "CONN"))}}
             See Connections in the Core Curriculum section of this Bulletin for course description.
           {{else}}
-            {{#if (or (ne credit_info "1 unit."))}}
+            {{#if (ne credit_info "1 unit.")}}
               {{credit_info}}
               {{/if}}
               {{course_description}}
