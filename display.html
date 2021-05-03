@@ -74,7 +74,7 @@
               {{/if}}
               {{course_description}}
               <em>
-                {{enroll_reqs}} {{repeat_info}}
+                {{#if enroll_reqs}}Prerequisite: {{enroll_reqs}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
                 Satisfies the {{core_descr}} core requirement.
                 {{/each}}
