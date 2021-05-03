@@ -21,6 +21,12 @@ fetch(bulletinApiUrl + department + "&acad_year=" + year)
         return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
     }
     });
+
+    Handlebars.registerHelper("nl2br", function(options) {
+      var brText = Handlebars.escapeExpression(options.fn(this)).replace(new RegExp('\r?\n','g'), '<br><br>');
+      return new Handlebars.SafeString(brText);
+    });
+
     var department_info = json.results;
     var department_html = department_template(department_info);
     document.getElementById('department').innerHTML = department_html;
