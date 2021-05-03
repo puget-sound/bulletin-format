@@ -42,8 +42,8 @@
   {{#if course_offerings}}
     <h3>Course Offerings</h3>
     {{#each course_offerings}}
-      <h4>{{course_list_name}}</h4>
       {{#if (or (eq course_list_code "SSI") (eq course_list_code "OTHR"))}}
+        <h4>{{course_list_name}}</h4>
         {{#if (eq course_list_code "SSI")}}
         <div class="indent course-list">
         {{#each courses}}
@@ -63,6 +63,7 @@
         </div>
         {{/if}}
       {{else}}
+        <h4>{{course_list_name}} ({{course_list_code}})</h4>
         <div class="course-list">
         {{#each courses}}
           <p><strong style="margin-right:0.5em;font-weight:bold;">{{catalog_nbr}} {{course_title_long}}</strong>
