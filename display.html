@@ -56,7 +56,11 @@
         {{#each courses}}
           <p><strong>{{course_name}} {{course_title_long}}</strong><br>
           {{#each core_codes}}
-            Satisfies the {{core_descr}} core requirement.
+            {{#if (or (eq core_code "FL") (eq core_code "KN"))}}
+              Satisfies the {{core_descr}}.
+            {{else}}
+              Satisfies the {{core_descr}} core requirement.
+            {{/if}}
           {{/each}}
           </p>
         {{/each}}
@@ -77,7 +81,11 @@
               <em>
                 {{#if enroll_reqs}}Prerequisite: {{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
-                Satisfies the {{core_descr}} core requirement.
+                  {{#if (or (eq core_code "FL") (eq core_code "KN"))}}
+                    Satisfies the {{core_descr}}.
+                  {{else}}
+                    Satisfies the {{core_descr}} core requirement.
+                  {{/if}}
                 {{/each}}
                 {{#each grade_options}}
                   {{#ew}}{{grade_option}}{{/ew}}
