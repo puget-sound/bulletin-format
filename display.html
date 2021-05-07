@@ -90,7 +90,9 @@
                 {{#each grade_options}}
                   {{#ew}}{{grade_option}}{{/ew}}
                 {{/each}}
-                {{#ew}}{{frequency}}{{/ew}}
+                {{#if frequency}}
+                  {{#ew}}{{frequency}}{{/ew}}
+                {{/if}}
               </em>
             {{/if}}
             </p>
