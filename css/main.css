@@ -282,6 +282,27 @@ textarea {
     margin-bottom:2em;
 }
 
-body {
+#system {
+    text-align:center;
+    text-transform:uppercase;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+    padding: .3em !important;
+}
+
+.system-cstst,
+.system-cststp {
+  background:#B4EC51;
+}
+
+.system-csdev,
+.system-csdevp {
+  background:#53A0FD;
+}
+
+#department {
   padding:1em;
 }

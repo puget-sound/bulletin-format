@@ -4,6 +4,11 @@ var department = searchParams.get("department");
 var year = searchParams.get("year");
 var system = searchParams.get("system");
 bulletinApiUrl = bulletinApiUrl.replace('csprd', system);
+if(system !== 'csprd') {
+  document.getElementById("system").textContent = document.getElementById("system").textContent.replaceAll('CSPRD', system);
+  document.getElementById("system").style.display = 'block';
+  document.getElementById("system").classList.add("system-" + system);
+}
 
 fetch(bulletinApiUrl + department + "&acad_year=" + year)
   .then(function(response) {
