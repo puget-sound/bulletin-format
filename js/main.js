@@ -2,6 +2,8 @@ var searchParams = new URLSearchParams(window.location.search);
 
 var department = searchParams.get("department");
 var year = searchParams.get("year");
+var system = searchParams.get("system");
+bulletinApiUrl = bulletinApiUrl.replace('csprd', system);
 
 fetch(bulletinApiUrl + department + "&acad_year=" + year)
   .then(function(response) {
