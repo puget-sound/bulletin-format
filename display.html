@@ -80,6 +80,7 @@
               {{/if}}
               {{course_description}}
               <em>
+                {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
                 {{#if enroll_reqs}}Prerequisite: {{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
                   {{#if (or (eq core_code "FL") (eq core_code "KN"))}}
