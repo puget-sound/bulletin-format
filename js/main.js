@@ -36,7 +36,8 @@ fetch(bulletinApiUrl + department + "&acad_year=" + year)
     });
 
     Handlebars.registerHelper("ew", function(options) {
-      var ewString = Handlebars.escapeExpression(options.fn(this));
+      //var ewString = Handlebars.escapeExpression(options.fn(this));
+      var ewString = options.fn(this);
       if(!ewString.endsWith('.')) {
         ewString = ewString + '.';
       }
