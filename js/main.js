@@ -3,6 +3,9 @@ var searchParams = new URLSearchParams(window.location.search);
 var department = searchParams.get("department");
 var year = searchParams.get("year");
 var system = searchParams.get("system");
+if(system === "cststp") {
+  bulletinApiUrl = bulletinApiUrl.replace('csprd-integration', 'campus-tstp');
+}
 bulletinApiUrl = bulletinApiUrl.replace('csprd', system);
 if(system !== 'csprd') {
   document.getElementById("system").textContent = document.getElementById("system").textContent.replaceAll('CSPRD', system);
