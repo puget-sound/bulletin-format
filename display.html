@@ -38,6 +38,14 @@
     <h3 style="margin-bottom:0;">About the {{acad_org.acad_org_type_descr}}</h3>
   {{/if}}
     <div class="about">{{#nl2br}}{{{acad_org.about_text}}}{{/nl2br}}</div>
+    <div class="sub">
+      {{#if sub_programs}}
+        {{#each sub_programs}}
+          <h4>{{sub_program_title}}</h4>
+          {{{sub_program_descr}}}
+        {{/each}}
+      {{/if}}
+    </div>
   </div>
   <div class="courses">
   {{#if course_offerings}}
