@@ -18,6 +18,9 @@ fetch(bulletinApiUrl + department + "&acad_year=" + year)
     return response.json();
   })
   .then(function(json) {
+    if(json.error) {
+      document.getElementById('department').innerHTML = json.error;
+    } else {
     var department_source = document.getElementById("department-template").innerHTML;
     var department_template = Handlebars.compile(department_source);
 
@@ -50,4 +53,5 @@ fetch(bulletinApiUrl + department + "&acad_year=" + year)
     var department_info = json.results;
     var department_html = department_template(department_info);
     document.getElementById('department').innerHTML = department_html;
+  }
   });

@@ -14,81 +14,29 @@
 </head>
 
 <body>
-
+  <div id="system" style="display:none;">CSPRD &nbsp;&nbsp;&nbsp;CSPRD &nbsp;&nbsp;&nbsp;CSPRD &nbsp;&nbsp;&nbsp;CSPRD &nbsp;&nbsp;&nbsp;CSPRD</div>
+  <div id="departments-container">
   <!-- Add your site or application content here -->
   <p>Puget Sound Bulletin Content Generator</p>
   <label for="term-select">Choose an academic year</label>
 
 <select name="term" id="term-select">
-    <option value="2021">2021</option>
-    <option value="2022" selected>2022</option>
-    <option value="2023">2023</option>
+    <option value="2020">2020</option>
+    <option value="2020" selected>2020</option>
+    <option value="2020">2020</option>
 </select>
 
-<ul id="departments">
+<ul id="departments"></ul>
 
-  <li><a href="display.html?department=AFRICAN-AM&year=2022&system=csprd">African American Studies</a></li>
-  <li><a href="display.html?department=ART&year=2022&system=csprd">Art and Art History</a></li>
-  <li><a href="display.html?department=ASIAN LANG&year=2022&system=csprd">Asian Languages and Cultures</a></li>
-  <li><a href="display.html?department=ASIAN STDY&year=2022&system=csprd">Asian Studies</a></li>
-  <li><a href="display.html?department=BIOCHEM&year=2022&system=csprd">Biochemistry</a></li>
-  <li><a href="display.html?department=BIOETHICS&year=2022&system=csprd">Bioethics</a></li>
-  <li><a href="display.html?department=BIOLOGY&year=2022&system=csprd">Biology</a></li>
-  <li><a href="display.html?department=CAREER SRV&year=2022&system=csprd">Career Development</a></li>
-  <li><a href="display.html?department=LRNG CENTR&year=2022&system=csprd">Center for Writing, Learning, and Teaching</a></li>
-  <li><a href="display.html?department=CHEMISTRY&year=2022&system=csprd">Chemistry</a></li>
-  <li><a href="display.html?department=CHINESE&year=2022&system=csprd">Chinese</a></li>
-  <li><a href="display.html?department=CLASSICS&year=2022&system=csprd">Classics and Ancient Mediterranean Studies</a></li>
-  <li><a href="display.html?department=COMM STUDY&year=2022&system=csprd">Communication Studies</a></li>
-  <li><a href="display.html?department=CSCI&year=2022&system=csprd">Computer Science</a></li>
-  <li><a href="display.html?department=CLJ&year=2022&system=csprd">Crime, Law & Justice Studies</a></li>
-  <li><a href="display.html?department=ECONOMICS&year=2022&system=csprd">Economics</a></li>
-  <li><a href="display.html?department=DD-ENGN&year=2022&system=csprd">Engineering, Dual Degree Program</a></li>
-  <li><a href="display.html?department=ENGLISH&year=2022&system=csprd">English</a></li>
-  <li><a href="display.html?department=ENVIR POL&year=2022&system=csprd">Environmental Policy and Decision Making</a></li>
-  <li><a href="display.html?department=EXER SCIEN&year=2022&system=csprd">Exercise Science</a></li>
-  <li><a href="display.html?department=EXLN&year=2022&system=csprd">Experiential Learning</a></li>
-  <li><a href="display.html?department=LIBRL STDY&year=2022&system=csprd">Freedom Education Project Puget Sound</a></li>
-  <li><a href="display.html?department=FRENCH&year=2022&system=csprd">French and Francophone Studies</a></li>
-  <li><a href="display.html?department=GNDR STUDY&year=2022&system=csprd">Gender and Queer Studies Program</a></li>
-  <li><a href="display.html?department=GEOLOGY&year=2022&system=csprd">Geology</a></li>
-  <li><a href="display.html?department=GERMAN&year=2022&system=csprd">German Studies</a></li>
-  <li><a href="display.html?department=GLOBAL DEV&year=2022&system=csprd">Global Development Studies</a></li>
-  <li><a href="display.html?department=GREEK&year=2022&system=csprd">Greek</a></li>
-  <li><a href="display.html?department=HISPANIC&year=2022&system=csprd">Hispanic Studies</a></li>
-  <li><a href="display.html?department=HISTORY&year=2022&system=csprd">History</a></li>
-  <li><a href="display.html?department=HONORS&year=2022&system=csprd">Honors</a></li>
-  <li><a href="display.html?department=HUMANITIES&year=2022&system=csprd">Interdisciplinary Humanities</a></li>
-  <li><a href="display.html?department=INTL POL E&year=2022&system=csprd">International Political Economy</a></li>
-  <li><a href="display.html?department=INTERNSHIP&year=2022&system=csprd">Internship</a></li>
-  <li><a href="display.html?department=JAPANESE&year=2022&system=csprd">Japanese</a></li>
-  <li><a href="display.html?department=LATIN&year=2022&system=csprd">Latin</a></li>
-  <li><a href="display.html?department=LATIN AMER&year=2022&system=csprd">Latin American Studies</a></li>
-  <li><a href="display.html?department=LATINA-O&year=2022&system=csprd">Latina/o Studies</a></li>
-  <li><a href="display.html?department=MATH CSCI&year=2022&system=csprd">Mathematics and Computer Science</a></li>
-  <li><a href="display.html?department=MOL CELL&year=2022&system=csprd">Molecular and Cellular Biology</a></li>
-  <li><a href="display.html?department=NATURL SCI&year=2022&system=csprd">Natural Science</a></li>
-  <li><a href="display.html?department=NEUROSCIEN&year=2022&system=csprd">Neuroscience</a></li>
-  <li><a href="display.html?department=OCC THRPY&year=2022&system=csprd">Occupational Therapy</a></li>
-  <li><a href="display.html?department=PHILOSOPHY&year=2022&system=csprd">Philosophy</a></li>
-  <li><a href="display.html?department=PHYS EDUC&year=2022&system=csprd">Physical Education</a></li>
-  <li><a href="display.html?department=PHYS THRPY&year=2022&system=csprd">Physical Therapy</a></li>
-  <li><a href="display.html?department=PHYSICS&year=2022&system=csprd">Physics</a></li>
-  <li><a href="display.html?department=POL%20%26%20GOV&year=2022&system=csprd">Politics and Government</a></li>
-  <li><a href="display.html?department=PSYCHOLOGY&year=2022&system=csprd">Psychology</a></li>
-  <li><a href="display.html?department=PUBL HLTH&year=2022&system=csprd">Public Health</a></li>
-  <li><a href="display.html?department=RELIGION&year=2022&system=csprd">Religious Studies</a></li>
-  <li><a href="display.html?department=BUSINESS&year=2022&system=csprd">School of Business and Leadership</a></li>
-  <li><a href="display.html?department=EDUCATION&year=2022&system=csprd">School of Education</a></li>
-  <li><a href="display.html?department=MUSIC&year=2022&system=csprd">School of Music</a></li>
-  <li><a href="display.html?department=STS&year=2022&system=csprd">Science, Technology & Society</a></li>
-  <li><a href="display.html?department=COMP SOC&year=2022&system=csprd">Sociology and Anthropology</a></li>
-  <li><a href="display.html?department=SPANISH&year=2022&system=csprd">Spanish</a></li>
-  <li><a href="display.html?department=SIM&year=2022&system=csprd">Special Interdisciplinary Maj</a></li>
-  <li><a href="display.html?department=STDNT AFRS&year=2022&system=csprd">Student Affairs</a></li>
-  <li><a href="display.html?department=STUDY ABRD&year=2022&system=csprd">Study Abroad</a></li>
-  <li><a href="display.html?department=THEATRE&year=2022&system=csprd">Theatre Arts</a></li>
-</ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/departments.js"></script>
+
+<script id="departments-template" type="text/x-handlebars-template">
+  {{#each acad_orgs}}
+  <li><a href="display.html?department={{acad_org}}&year=2022&system={{../system_href}}">{{acad_org_descr}}</a></li>
+  {{/each}}
+</script>
 
 <br><br>
 <label for="system-select">Choose a system</label>
@@ -117,16 +65,27 @@ selectElement.addEventListener('change', (event) => {
 var systemElement = document.querySelector('#system-select');
 
 systemElement.addEventListener('change', (event) => {
-  var elements = document.querySelectorAll("#departments > li > a");
-  for (var i = 0; i < elements.length; i++) {
-      var href = elements[i].getAttribute("href");
-      var newHref = href.replace(/(system=).*?(&|$)/,'$1' + event.target.value + '$2');
-      elements[i].setAttribute("href", newHref);
+  document.getElementById("system").style.display = 'none';
+  var bulletinSystem = event.target.value;
+  if(bulletinSystem === "cststp") {
+    bulletinSystem = 'campus-tstp';
   }
+  else {
+    bulletinSystem = bulletinSystem + '-integration';
+  }
+  bulletinDeptsApiUrl = bulletinDeptsApiUrl.replace(/^(https?:\/\/)(www\.)?([^.])*/, '$1$2' + bulletinSystem);
 
+  listDepartments(event.target.value);
+
+  if(event.target.value !== 'csprd') {
+    document.getElementById("system").innerHTML = event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value;
+    document.getElementById("system").style.display = 'block';
+    document.getElementById("system").classList.add("system-" + event.target.value);
+  }
 });
 
 </script>
+</div>
 </body>
 
 </html>

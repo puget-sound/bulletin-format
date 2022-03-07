@@ -303,6 +303,7 @@ textarea {
   background:#53A0FD;
 }
 
-#department {
+#department,
+#departments-container {
   padding:1em;
 }
