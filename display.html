@@ -49,6 +49,21 @@
       {{/if}}
     </div>
   </div>
+  <div class="requirements">
+  {{#if plan_requirements.req_course_lists}}
+    <h3>General Requirements for the Major or Minor</h3>
+    {{#each plan_requirements.req_course_lists}}
+      <h4 style="margin-bottom:0;">{{course_list_name}}</h4>
+      {{#nl2br}}{{{course_list_descr}}}{{/nl2br}}
+      <div class="indent course-list">
+      {{#each courses}}
+        <p>{{course_name}} {{course_title_long}} {{course_extra_info}}</p>
+      {{/each}}
+      </div>
+      <p>{{course_list_footer}}</p>
+    {{/each}}
+  {{/if}}
+  </div>
   <div class="courses">
   {{#if course_offerings}}
     <h3>Course Offerings</h3>
