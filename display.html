@@ -57,7 +57,7 @@
       {{#nl2br}}{{{course_list_descr}}}{{/nl2br}}
       <div class="indent course-list">
       {{#each courses}}
-        <p>{{course_name}} {{course_title_long}} {{course_extra_info}}</p>
+        <p>{{course_name}} {{course_title_long}} {{#if (ne credit_info "1 unit.")}} ({{credit_info}}) {{/if}} <em>{{course_extra_info}}</em></p>
       {{/each}}
       </div>
       <p>{{course_list_footer}}</p>
