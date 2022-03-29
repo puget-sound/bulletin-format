@@ -54,8 +54,8 @@
     <p>{{{plan_requirements.plan_requirements_descr}}}</p>
 
   {{#if plan_requirements.plan_headers}}
-      {{#each plan_requirements.plan_headers}}
-    <h4>{{plan_header_title}}</h4>
+    {{#each plan_requirements.plan_headers}}
+    <h3>{{plan_header_title}}</h3>
     {{{plan_header_descr}}}
     {{/each}}
   {{/if}}
@@ -65,12 +65,12 @@
       {{#each plans}}
         {{{plan_group_descr}}}
 
-        <h4>{{plan_title}}</h4>
+        <h3>{{plan_title}}</h3>
         {{{plan_requirements}}}
 
         {{#if plan_group_footers}}
           {{#each plan_group_footers}}
-            <h4>{{plan_group_footer_title}}</h4>
+            <h3>{{plan_group_footer_title}}</h3>
             {{{plan_group_footer_descr}}}
           {{/each}}
         {{/if}}
