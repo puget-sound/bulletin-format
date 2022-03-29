@@ -50,8 +50,43 @@
     </div>
   </div>
   <div class="requirements">
+    <h3>{{plan_requirements.plan_requirements_title}}</h3>
+    <p>{{{plan_requirements.plan_requirements_descr}}}</p>
+
+  {{#if plan_requirements.plan_headers}}
+      {{#each plan_requirements.plan_headers}}
+    <h4>{{plan_header_title}}</h4>
+    {{{plan_header_descr}}}
+    {{/each}}
+  {{/if}}
+
+  {{#if plan_requirements.plan_groups}}
+    {{#each plan_requirements.plan_groups}}
+      {{#each plans}}
+        {{{plan_group_descr}}}
+
+        <h4>{{plan_title}}</h4>
+        {{{plan_requirements}}}
+
+        {{#if plan_group_footers}}
+          {{#each plan_group_footers}}
+            <h4>{{plan_group_footer_title}}</h4>
+            {{{plan_group_footer_descr}}}
+          {{/each}}
+        {{/if}}
+
+      {{/each}}
+    {{/each}}
+  {{/if}}
+
+  {{#if plan_requirements.plan_footers}}
+    {{#each plan_requirements.plan_footers}}
+        <h4>{{plan_footer_title}}</h4>
+        {{{plan_footer_descr}}}
+    {{/each}}
+  {{/if}}
+
   {{#if plan_requirements.req_course_lists}}
-    <h3>General Requirements for the Major or Minor</h3>
     {{#each plan_requirements.req_course_lists}}
       <h4 style="margin-bottom:0;">{{course_list_name}}</h4>
       {{#nl2br}}{{{course_list_descr}}}{{/nl2br}}
