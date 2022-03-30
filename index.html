@@ -36,7 +36,7 @@
 
 <script id="departments-template" type="text/x-handlebars-template">
   {{#each acad_orgs}}
-  <li><a href="display.html?department={{acad_org}}&year=2022&system={{../system_href}}">{{acad_org_descr}}</a></li>
+  <li><a href="display.html?department={{#urlencode}}{{{acad_org}}}{{/urlencode}}&year=2022&system={{../system_href}}">{{acad_org_descr}}</a></li>
   {{/each}}
 </script>
 

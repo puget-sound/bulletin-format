@@ -41,6 +41,10 @@ document.getElementById('departments').innerHTML = 'Fetching data...';
       var department_source = document.getElementById("departments-template").innerHTML;
       var department_template = Handlebars.compile(department_source);
 
+      Handlebars.registerHelper("urlencode", function(options) {
+        return encodeURIComponent(options.fn(this));
+      });
+
       var department_info = json.results;
       department_info.system_href = systemHref;
       var department_html = department_template(department_info);
