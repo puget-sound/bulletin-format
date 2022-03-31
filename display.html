@@ -102,6 +102,7 @@
   <div class="courses">
   {{#if course_offerings}}
     <h3>Course Offerings</h3>
+    {{acad_org.course_offerings_descr}}
     {{#each course_offerings}}
       {{#if (or (eq course_list_code "SSI") (eq course_list_code "OTHR"))}}
         <h4>{{course_list_name}}</h4>
@@ -143,10 +144,14 @@
                 {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
                 {{#if enroll_reqs}}Prerequisite: {{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
+                {{#if core_fulfillment}}
+                  {{core_fulfillment}}
+                {{else}}
                   {{#if (or (eq core_code "FL") (eq core_code "KN"))}}
                     Satisfies the {{core_descr}}.
                   {{else}}
                     Satisfies the {{core_descr}} core requirement.
+                  {{/if}}
                   {{/if}}
                 {{/each}}
                 {{#each grade_options}}
