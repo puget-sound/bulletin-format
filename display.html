@@ -102,7 +102,7 @@
   <div class="courses">
   {{#if course_offerings}}
     <h3>Course Offerings</h3>
-    {{acad_org.course_offerings_descr}}
+    {{{acad_org.course_offerings_descr}}}
     {{#each course_offerings}}
       {{#if (or (eq course_list_code "SSI") (eq course_list_code "OTHR"))}}
         <h4>{{course_list_name}}</h4>
