@@ -140,7 +140,7 @@
               {{credit_info}}
               {{/if}}
               {{course_description}}
-              {{#ew}}{{language_of_instruction}}{{/ew}}
+              {{#if language_of_instruction}}{{#ew}}{{language_of_instruction}}{{/ew}}{{/if}}
               <em>
                 {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
                 {{#if enroll_reqs}}{{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
