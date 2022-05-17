@@ -140,9 +140,10 @@
               {{credit_info}}
               {{/if}}
               {{course_description}}
+              {{#ew}}{{language_of_instruction}}{{/ew}}
               <em>
                 {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
-                {{#if enroll_reqs}}Prerequisite: {{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
+                {{#if enroll_reqs}}{{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
                 {{#if core_fulfillment}}
                   {{core_fulfillment}}

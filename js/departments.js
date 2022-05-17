@@ -7,17 +7,20 @@ var this_year = this_today.getFullYear();
 var this_month = this_today.getMonth();
 var set_year = this_year;
 
+termElement[0].value = this_year - 2;
+termElement[0].text = this_year - 2;
+
 termElement[0].value = this_year - 1;
 termElement[0].text = this_year - 1;
 
-termElement[1].value = this_year;
-termElement[1].text = this_year;
-termElement[1].selected = true;
+termElement[2].value = this_year;
+termElement[2].text = this_year;
+termElement[2].selected = true;
 
-termElement[2].value = this_year + 1;
-termElement[2].text = this_year + 1;
+termElement[3].value = this_year + 1;
+termElement[3].text = this_year + 1;
 if(this_month > 5) {
-  termElement[2].selected = true;
+  termElement[3].selected = true;
   set_year = this_year + 1;
 }
 
@@ -29,10 +32,48 @@ for (var i = 0; i < deptElements.length; i++) {
     deptElements[i].setAttribute("href", newHref);
 }
 
-listDepartments("csprd");
+// get and set year and system
+var searchParams = new URLSearchParams(window.location.search);
 
-function listDepartments(systemHref){
-document.getElementById('departments').innerHTML = 'Fetching data...';
+var system = 'csprd';
+if(searchParams.get("system") !== null) {
+  system = searchParams.get("system");
+}
+var year = this_year;
+if(searchParams.get("year") !== null){
+  year = searchParams.get("year");
+};
+document.querySelector('#system-select').value = system;
+document.querySelector('#term-select').value = year;
+
+listDepartments(system);
+
+function updateAcademicYear(academicYear){
+  var elements = document.querySelectorAll("#departments > li > a");
+  for (var i = 0; i < elements.length; i++) {
+      var href = elements[i].getAttribute("href");
+      var newHref = href.replace(/(year=).*?(&|$)/,'$1' + academicYear + '$2');
+      elements[i].setAttribute("href", newHref);
+  }
+}
+
+function listDepartments(systemName){
+  document.getElementById('departments').innerHTML = 'Fetching data...';
+  var systemNameShort = systemName;
+  if(systemName !== 'csprd') {
+    document.getElementById("system").innerHTML = systemName + " &nbsp;&nbsp;&nbsp;" + systemName + " &nbsp;&nbsp;&nbsp;" + systemName + " &nbsp;&nbsp;&nbsp;" + systemName + " &nbsp;&nbsp;&nbsp;" + systemName;
+    document.getElementById("system").style.display = 'block';
+    document.getElementById("system").classList.add("system-" + systemName);
+  }
+
+  if(systemName === "cststp") {
+    systemName = 'campus-tstp';
+  }
+  else {
+    systemName = systemName + '-integration';
+  }
+  bulletinDeptsApiUrl = bulletinDeptsApiUrl.replace(/^(https?:\/\/)(www\.)?([^.])*/, '$1$2' + systemName);
+
   fetch(bulletinDeptsApiUrl)
     .then(function(response) {
       return response.json();
@@ -46,8 +87,9 @@ document.getElementById('departments').innerHTML = 'Fetching data...';
       });
 
       var department_info = json.results;
-      department_info.system_href = systemHref;
+      department_info.system_href = systemNameShort;
       var department_html = department_template(department_info);
       document.getElementById('departments').innerHTML = department_html;
+      updateAcademicYear(year);
     });
 }

@@ -24,21 +24,12 @@
 
 <select name="term" id="term-select">
     <option value="2020">2020</option>
+    <option value="2020">2020</option>
     <option value="2020" selected>2020</option>
     <option value="2020">2020</option>
 </select>
 
 <ul id="departments"></ul>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/departments.js"></script>
-
-<script id="departments-template" type="text/x-handlebars-template">
-  {{#each acad_orgs}}
-  <li><a href="display.html?department={{#urlencode}}{{{acad_org}}}{{/urlencode}}&year=2022&system={{../system_href}}">{{acad_org_descr}}</a></li>
-  {{/each}}
-</script>
 
 <br><br>
 <label for="system-select">Choose a system</label>
@@ -51,39 +42,34 @@
   <option value="csdevp">DEVp</option>
 </select>
 
+<script id="departments-template" type="text/x-handlebars-template">
+  {{#each acad_orgs}}
+  <li><a href="display.html?department={{#urlencode}}{{{acad_org}}}{{/urlencode}}&year=2022&system={{../system_href}}">{{acad_org_descr}}</a></li>
+  {{/each}}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/departments.js"></script>
+
 <script>
+var redirectURL = window.location.pathname;
+if(window.location.origin !== 'null') {
+  redirectURL = window.location.origin + redirectURL;
+}
+
 var selectElement = document.querySelector('#term-select');
 
 selectElement.addEventListener('change', (event) => {
-  var elements = document.querySelectorAll("#departments > li > a");
-  for (var i = 0; i < elements.length; i++) {
-      var href = elements[i].getAttribute("href");
-      var newHref = href.replace(/(year=).*?(&|$)/,'$1' + event.target.value + '$2');
-      elements[i].setAttribute("href", newHref);
-  }
-
+  redirectURL = redirectURL + "?system=" + systemElement.value + "&year=" + event.target.value;
+  window.location = redirectURL;
 });
 
 var systemElement = document.querySelector('#system-select');
 
 systemElement.addEventListener('change', (event) => {
-  document.getElementById("system").style.display = 'none';
-  var bulletinSystem = event.target.value;
-  if(bulletinSystem === "cststp") {
-    bulletinSystem = 'campus-tstp';
-  }
-  else {
-    bulletinSystem = bulletinSystem + '-integration';
-  }
-  bulletinDeptsApiUrl = bulletinDeptsApiUrl.replace(/^(https?:\/\/)(www\.)?([^.])*/, '$1$2' + bulletinSystem);
-
-  listDepartments(event.target.value);
-
-  if(event.target.value !== 'csprd') {
-    document.getElementById("system").innerHTML = event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value + " &nbsp;&nbsp;&nbsp;" + event.target.value;
-    document.getElementById("system").style.display = 'block';
-    document.getElementById("system").classList.add("system-" + event.target.value);
-  }
+  redirectURL = redirectURL + "?system=" + event.target.value + "&year=" + selectElement.value;
+  window.location = redirectURL;
 });
 
 </script>
