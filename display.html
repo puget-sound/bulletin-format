@@ -109,7 +109,7 @@
         {{#if (eq course_list_code "SSI")}}
         <div class="indent course-list">
         {{#each courses}}
-          <p><strong>{{course_name}} {{course_title_long}}</strong></p>
+          <p><strong>{{course_name}}&nbsp;&nbsp;{{course_title_long}}</strong></p>
         {{/each}}
         </div>
         {{/if}}
@@ -132,18 +132,17 @@
         <h4>{{course_list_name}} ({{course_list_code}})</h4>
         <div class="course-list">
         {{#each courses}}
-          <p><strong style="margin-right:0.5em;font-weight:bold;">{{catalog_nbr}} {{course_title_long}}</strong>
-          {{#if (or (eq course_category "CONN"))}}
+          <p><strong>{{catalog_nbr}}&nbsp;&nbsp;{{course_title_long}}&nbsp;&nbsp;</strong>{{#if (or (eq course_category "CONN"))}}
             See Connections in the Core Curriculum section of this Bulletin for course description.
           {{else}}
-            {{#if (ne credit_info "1 unit.")}}
-              {{credit_info}}
-              {{/if}}
-              {{course_description}}
-              {{#if language_of_instruction}}{{#ew}}{{language_of_instruction}}{{/ew}}{{/if}}
-              <em>
-                {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
-                {{#if enroll_reqs}}{{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
+          {{#if (ne credit_info "1 unit.")}}
+            {{credit_info}}
+          {{/if}}
+          {{course_description}}
+          {{#if language_of_instruction}}{{#ew}}{{language_of_instruction}}{{/ew}}{{/if}}
+            <em>
+            {{#if cross_listing}}Cross-listed as {{cross_listing}}.{{/if}}
+              {{#if enroll_reqs}}{{#ew}}{{enroll_reqs}}{{/ew}}{{/if}} {{repeat_info}}
                 {{#each core_codes}}
                 {{#if core_fulfillment}}
                   {{core_fulfillment}}
