@@ -10,8 +10,8 @@ var set_year = this_year;
 termElement[0].value = this_year - 2;
 termElement[0].text = this_year - 2;
 
-termElement[0].value = this_year - 1;
-termElement[0].text = this_year - 1;
+termElement[1].value = this_year - 1;
+termElement[1].text = this_year - 1;
 
 termElement[2].value = this_year;
 termElement[2].text = this_year;
