@@ -27,6 +27,9 @@
 <script id="department-template" type="text/x-handlebars-template">
 <div class="entry">
   <h2>{{acad_org.acad_org_descr}}</h2>
+  {{#if acad_org.acad_org_division}}
+  <p><em>{{acad_org.acad_org_division}}</em></p>
+  {{/if}}
   <div class="members">
     {{#each dept_members}}
       <h4 style="margin-bottom:0;">{{member_category}}</h4>
